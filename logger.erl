@@ -15,5 +15,8 @@ log(File, Msg) ->
 .
 
 log(File, Msg, Mode) ->
-    file:write_file(File, io_lib:format("~s\n", [Msg]), Mode)
+    {Y, Month, Day} = date(),
+    {H, Minute, Seconds} = time(),
+    D = io_lib:format("~p-~2..0w-~2..0w ~2..0w:~2..0w:~2..0w", [Y, Month, Day, H, Minute, Seconds]),
+    file:write_file(File, io_lib:format("~s ~s\n", [D, Msg]), Mode)
 .
