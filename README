@@ -1,0 +1,4 @@
+Erlang logger module
+====================
+
+Simple stupid module to log info into file.
